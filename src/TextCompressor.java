@@ -1,3 +1,4 @@
+import java.util.*;
 /******************************************************************************
  *  Compilation:  javac TextCompressor.java
  *  Execution:    java TextCompressor - < input.txt   (compress)
@@ -25,13 +26,17 @@
  *  The {@code TextCompressor} class provides static methods for compressing
  *  and expanding natural language through textfile input.
  *
- *  @author Zach Blick, YOUR NAME HERE
+ *  @author Zach Blick, William Beesley
  */
 public class TextCompressor {
 
     private static void compress() {
-
-        // TODO: Complete the compress() method
+        String input = BinaryStdIn.readString();
+        String[] parts = input.split(" ");
+        Map<String, Integer> freq = new HashMap<>();
+        for (String s : parts) {
+            freq.put(s, freq.getOrDefault(s, 0) + 1);
+        }
 
         BinaryStdOut.close();
     }
